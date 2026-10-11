@@ -8,9 +8,9 @@ from pyrogram.types import Message
 from py_yt import VideosSearch, Playlist
 import aiohttp
 
-API_URL = os.environ.get("API_URL", "https://apisparrow.site")
+API_URL = os.environ.get("API_URL", "https://api01.shrutibots.site")
 
-API_KEY = os.environ.get("API_KEY", "sparrowQkRHLixfwxZH9UiabXaF1qYf") ## RAM BOT USERNAMOT 
+API_KEY = os.environ.get("API_KEY", "ShrutiBotsrD0j5Yhuspi4RWrbXlaY") ## RAM BOT USERNAMOT 
 
 DOWNLOAD_DIR = "downloads"
 
