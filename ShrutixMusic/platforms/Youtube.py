@@ -8,9 +8,9 @@ from pyrogram.types import Message
 from py_yt import VideosSearch, Playlist
 import aiohttp
 
-API_URL = os.environ.get("API_URL", "https://apisparrow.site")
+API_URL = os.environ.get("SHRUTI_API_URL", "https://api.shrutibots.site")
 
-API_KEY = os.environ.get("API_KEY", "sparrowQkRHLixfwxZH9UiabXaF1qYf") ## RAM BOT USERNAMOT 
+API_KEY = os.environ.get("SHRUTI_API_KEY", "ShrutiBotsrD0j5Yhuspi4RWrbXlaY") ## Get This API KEY FROM TELEGRAM BOT USERNAME: @SHRUTIAPIBOT 
 
 DOWNLOAD_DIR = "downloads"
 
@@ -122,10 +122,15 @@ async def get_autoplay(
     video_id: str,
     timeout: int = AUTOPLAY_REQUEST_TIMEOUT,
     retries: int = AUTOPLAY_MAX_RETRIES,
+    seed_id: str = None,
 ) -> list:
     video_id = video_id.split("v=")[-1].split("&")[0] if "v=" in video_id else video_id
     if not video_id or len(video_id) < 3:
         return []
+
+    params = {"video_id": video_id, "api_key": API_KEY}
+    if seed_id and seed_id != video_id:
+        params["seed_id"] = seed_id
 
     attempt = 0
     while attempt < retries:
@@ -134,7 +139,7 @@ async def get_autoplay(
             async with aiohttp.ClientSession() as session:
                 async with session.get(
                     f"{API_URL}/autoplay",
-                    params={"video_id": video_id, "api_key": API_KEY},
+                    params=params,
                     timeout=aiohttp.ClientTimeout(total=timeout),
                 ) as resp:
                     if resp.status == 200:
