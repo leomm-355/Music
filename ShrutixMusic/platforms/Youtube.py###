@@ -9,7 +9,7 @@ from py_yt import VideosSearch, Playlist
 import aiohttp
 
 API_URL = os.environ.get("Core_API_URL", "https://music.yukiapi.site")
-API_KEY = os.environ.get("Core_API_KEY", "yuki_157c59d5ac632ccf7e23eb14a7b39ad9") 
+API_KEY = os.environ.get("Core_API_KEY", "yuki_ced708ab87540e2499c988c4d7e9ec14") 
 
 DOWNLOAD_DIR = "downloads"
 
